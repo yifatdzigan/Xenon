@@ -90,4 +90,12 @@ public class LocalFileSystemTest extends FileSystemTestParent {
 
         assertTrue("Listing contains hidden file", res.stream().anyMatch(PathAttributes::isHidden));
     }
+
+    @Test
+    public void test_exists_existingTildeDir_returnTrue() throws Exception {
+        // My home dir should exist
+        Path path = new Path("~");
+
+        assertTrue(fileSystem.exists(path));
+    }
 }
